@@ -1,0 +1,341 @@
+/* ============================================================================
+   DESIGN SYSTEM & THEME TOKENS - BOXY INDUSTRIAL PORTFOLIO
+   ============================================================================ */
+:root {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-viewport: #f1f5f9;
+  
+  --border-color: #cbd5e1;
+  --border-dark: #0f172a;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --transition-fast: 0.15s ease-in-out;
+}
+
+/* ============================================================================
+   BASE STYLES & LAYOUT
+   ============================================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-wrapper {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ============================================================================
+   TOP LEFT NAVIGATION HEADER
+   ============================================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 16px 32px;
+  background-color: #ffffff;
+  border-bottom: 2px solid var(--border-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+h1 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.header-badge {
+  display: inline-block;
+  background-color: #e2e8f0;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-dark);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.header-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-dark);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.header-link-btn:hover {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.header-link-btn img {
+  border-radius: 3px;
+}
+
+/* ============================================================================
+   MAIN SCROLLABLE PROJECTS CONTAINER
+   ============================================================================ */
+.main-container {
+  width: 100%;
+}
+
+#projects-container {
+  width: 100%;
+}
+
+/* Single Project Block — side-by-side layout, wraps to column when narrow */
+.project-card {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  background-color: var(--bg-card);
+  border-bottom: 2px solid var(--border-dark);
+}
+
+/* Left Column: Title, Description, GitHub Link */
+.project-header-section {
+  flex: 1;
+  min-width: 280px;
+  max-width: 500px;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+}
+
+.project-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.project-description {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 900px;
+  margin-bottom: 20px;
+}
+
+.project-description p {
+  margin-bottom: 12px;
+}
+
+.project-description h1,
+.project-description h2,
+.project-description h3 {
+  color: var(--text-primary);
+  margin-top: 16px;
+  margin-bottom: 8px;
+  text-transform: none;
+}
+
+.project-description ul,
+.project-description ol {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.project-description li {
+  margin-bottom: 4px;
+}
+
+.project-description code {
+  font-family: var(--font-mono);
+  background-color: #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-primary);
+}
+
+.project-description a {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 2px solid var(--border-dark);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.github-btn:hover {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.github-btn svg {
+  fill: currentColor;
+  width: 16px;
+  height: 16px;
+}
+
+/* Right Column: CAD Visualization — square, centered */
+.viewer-wrapper {
+  aspect-ratio: 1 / 1;
+  width: min(65vh, 100%);
+  max-width: 600px;
+  margin: auto;
+  flex-shrink: 0;
+  background-color: var(--bg-viewport);
+  border: 2px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.viewport-canvas {
+  width: 100%;
+  flex: 1;
+  display: block;
+}
+
+.viewer-controls-hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background-color: #ffffff;
+  border-top: 2px solid var(--border-dark);
+  font-size: 0.62rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.control-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.key-badge {
+  background-color: #e2e8f0;
+  border: 1px solid var(--border-dark);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* Responsive: stack vertically when not enough horizontal space */
+@media (max-width: 900px) {
+  .project-card {
+    flex-direction: column;
+    padding: 28px 20px;
+    gap: 24px;
+    min-height: auto;
+  }
+  .project-header-section {
+    max-width: 100%;
+  }
+  .viewer-wrapper {
+    flex: none;
+    width: 100%;
+    height: 50vh;
+    min-height: 300px;
+    align-self: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .project-card {
+    padding: 20px 16px;
+  }
+  .project-title {
+    font-size: 1.5rem;
+  }
+  .viewer-wrapper {
+    height: 40vh;
+  }
+}

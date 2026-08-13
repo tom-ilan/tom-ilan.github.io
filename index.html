@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tom Ilan - Portfolio</title>
+
+  <!-- Typography & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- External WebGL & CAD Libraries (Three.js, STLLoader, OrbitControls) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  
+  <!-- Markdown Parser Library -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Modular Application Scripts -->
+  <script src="projects-data.js"></script>
+  <script src="stl-viewer.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+
+  <div class="app-wrapper">
+    <!-- Top Bar Navigation Header -->
+    <header class="site-header">
+      <div class="header-brand">
+        <h1>Tom Ilan</h1>
+        <span class="header-badge">aspiring engineer</span>
+      </div>
+      <div class="header-links">
+        <a href="https://github.com/tom-ilan" target="_blank" class="header-link-btn" title="GitHub Profile">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="https://www.openpowerlifting.org/u/tomilan" target="_blank" class="header-link-btn" title="OpenPowerlifting Profile">
+          <img src="https://www.openpowerlifting.org/favicon.ico" alt="OpenPowerlifting" width="20" height="20">
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Fullpage Project Container -->
+    <main class="main-container">
+      <div id="projects-container"></div>
+    </main>
+  </div>
+
+</body>
+</html>
