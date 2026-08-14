@@ -44,7 +44,7 @@ function renderProjectCard(project) {
     : ``;
 
   const projectYearHtml = project.year
-    ? `<span class="project-year">Made ${project.year}</span>`
+    ? `<span class="project-year">${project.year}</span>`
     : ``;
 
   const parsedDescriptionHtml = window.marked 
@@ -53,13 +53,13 @@ function renderProjectCard(project) {
 
   section.innerHTML = `
     <!-- Top Header Details (Title & Description Above STL) -->
-    <div class="project-header-section">
+      <div class="project-header-section">
       <div class="section-label">Project</div>
       <h2 class="project-title">${project.title || 'Untitled Project'}</h2>
+      ${projectYearHtml}
       <div class="project-description">${parsedDescriptionHtml}</div>
       
       <div class="project-meta">
-        ${projectYearHtml}
         ${githubBtnHtml}
       </div>
     </div>

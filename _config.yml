@@ -1,0 +1,7 @@
+title: Tom Ilan
+description: Engineering portfolio
+url: "https://tom-ilan.github.io"
+baseurl: ""
+
+exclude:
+  - __guide.md
