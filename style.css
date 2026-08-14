@@ -225,6 +225,15 @@ h1 {
   gap: 16px;
 }
 
+.project-year {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .github-btn {
   display: inline-flex;
   align-items: center;

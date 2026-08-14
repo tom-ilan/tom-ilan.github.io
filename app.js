@@ -43,6 +43,10 @@ function renderProjectCard(project) {
     `
     : ``;
 
+  const projectYearHtml = project.year
+    ? `<span class="project-year">Made ${project.year}</span>`
+    : ``;
+
   const parsedDescriptionHtml = window.marked 
     ? marked.parse(project.description || 'No description provided.')
     : `<p>${project.description || 'No description provided.'}</p>`;
@@ -55,6 +59,7 @@ function renderProjectCard(project) {
       <div class="project-description">${parsedDescriptionHtml}</div>
       
       <div class="project-meta">
+        ${projectYearHtml}
         ${githubBtnHtml}
       </div>
     </div>

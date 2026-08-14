@@ -8,6 +8,7 @@
  * {
  *   id: "unique-project-id",          // String: Unique identifier for DOM elements
  *   title: "Project Title",           // String: Name/title of your project
+ *   year: "2025",                     // String or number (Optional): Year the project was made
  *   description: "Project summary..", // String: Detailed project description
  *   githubUrl: "https://...",        // String: Link to your GitHub repository/article
  *   stlUrl: "path/to/model.stl",      // String (Optional): URL or relative path to a default .stl file
@@ -24,6 +25,7 @@ const PROJECTS_REGISTRY = [
   {
     id: "cycloidal-gearbox",
     title: "A 3D Printed Cycloidal Gearbox",
+    year: "2026",
     description: `
 
 This is my cycloidal gearbox I built, and the python script I created to generate it! A cycloidal gearbox is a type of gearbox that allows you to turn rotational speed into torque. 
@@ -48,6 +50,7 @@ This gearbox was the first working version to run on a NEMA 17. It has a larger 
   {
     id: "robotic-arm",
     title: "3-Axis Robotic Arm",
+    year: "2026",
     description: `
 
 A fully 3D-printable 3-axis robotic arm designed in **Fusion 360**, controlled via **Arduino**, and programmed in **Python**.
