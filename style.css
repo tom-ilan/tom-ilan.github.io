@@ -274,24 +274,25 @@ h1 {
 }
 
 .viewer-controls-hint {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
-  justify-content: space-between;
   padding: 6px 12px;
   background-color: #ffffff;
   border-top: 2px solid var(--border-dark);
-  font-size: 0.62rem;
+  font-size: clamp(0.56rem, 1.1vw, 0.62rem);
   color: var(--text-secondary);
   font-family: var(--font-mono);
   font-weight: 600;
-  gap: 4px;
-  flex-wrap: wrap;
+  gap: 6px;
+  flex: 0 0 auto;
 }
 
 .control-item {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  min-width: 0;
 }
 
 .key-badge {
@@ -337,5 +338,17 @@ h1 {
   }
   .viewer-wrapper {
     height: 40vh;
+  }
+  .viewer-controls-hint {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 6px 8px;
+    gap: 5px;
+    font-size: 0.56rem;
+  }
+  .control-item {
+    gap: 4px;
+  }
+  .key-badge {
+    padding: 2px 4px;
   }
 }
