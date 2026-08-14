@@ -77,13 +77,23 @@ function renderProjectCard(project) {
     const wrapper = canvas ? canvas.parentElement : null;
     if (!canvas || !wrapper) return;
 
-    const viewer = new STLViewer(canvas, wrapper.clientWidth, wrapper.clientHeight - 42);
+    const controlsHint = wrapper.querySelector('.viewer-controls-hint');
+    const getViewportHeight = () => Math.max(
+      1,
+      wrapper.clientHeight - (controlsHint ? controlsHint.offsetHeight : 0)
+    );
+    const viewer = new STLViewer(canvas, wrapper.clientWidth, getViewportHeight());
     viewer.setColor(project.modelColor);
 
-    // Handle window resize dynamically
-    window.addEventListener('resize', () => {
-      viewer.resize(wrapper.clientWidth, wrapper.clientHeight - 42);
-    });
+    // Keep the canvas sized to the remaining space when the responsive
+    // controls panel changes between one and two lines.
+    const resizeViewer = () => {
+      viewer.resize(wrapper.clientWidth, getViewportHeight());
+    };
+    const resizeObserver = new ResizeObserver(resizeViewer);
+    resizeObserver.observe(wrapper);
+    if (controlsHint) resizeObserver.observe(controlsHint);
+    window.addEventListener('resize', resizeViewer);
 
     // Fetch and render the STL file specified in projects-data.js
     if (project.stlUrl) {
