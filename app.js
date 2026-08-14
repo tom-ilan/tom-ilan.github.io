@@ -44,7 +44,7 @@ function renderProjectCard(project) {
     : ``;
 
   const projectYearHtml = project.year
-    ? `<span class="project-year">${project.year}</span>`
+    ? `<div class="project-year">${project.year}</div>`
     : ``;
 
   const parsedDescriptionHtml = window.marked 
