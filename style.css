@@ -338,7 +338,13 @@ h1 {
     font-size: 1.5rem;
   }
   .viewer-wrapper {
-    height: 40vh;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+  .viewport-canvas {
+    flex: none;
+    height: calc(40vh - 42px);
   }
   .viewer-controls-hint {
     grid-template-columns: repeat(2, minmax(0, 1fr));
