@@ -1,3 +1,3 @@
 # Link to the website
  
-[here](https://github.com/tom-ilan/tom-ilan.github.io)
+[here](https://tom-ilan.github.io/)
