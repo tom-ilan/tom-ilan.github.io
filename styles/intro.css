@@ -1,0 +1,65 @@
+/* ============================================================================
+   intro.css — Intro / Hero Card
+   ============================================================================
+   The first full-viewport section the user sees when the page loads.
+   Contains only the site title centred on the screen — intentionally
+   minimal to let the project cards below speak for themselves.
+   ============================================================================ */
+
+/* ── Outer Section ───────────────────────────────────────────────────────────
+   Fills the visible viewport (minus the sticky header height of ~60px).
+   Uses CSS Grid's place-items shorthand to centre content both ways. */
+.intro-card {
+  width: 100%;
+  min-height: calc(100vh - 60px);  /* Full viewport minus header */
+  padding: 40px 32px;
+  display: grid;
+  place-items: center;             /* Horizontally + vertically centred */
+  background-color: var(--bg-card);
+  border-bottom: 2px solid var(--border-dark);
+  text-align: center;
+}
+
+/* ── Content Wrapper ─────────────────────────────────────────────────────────
+   Constrains the inner content so the title doesn't span the full width
+   on very wide monitors. */
+.intro-card-content {
+  max-width: 500px;
+}
+
+/* Push the section label above the main title */
+.intro-card .section-label {
+  margin-bottom: 12px;
+}
+
+/* ── Main Title ──────────────────────────────────────────────────────────────
+   clamp() scales the font fluidly between 3rem (mobile) and 6rem (desktop). */
+.intro-card-title {
+  color: var(--text-primary);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* ── Section Label (shared across the page) ──────────────────────────────────
+   Small all-caps monospace label used above titles to denote content type
+   (e.g. "Introduction", "Project"). */
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+}
+
+/* ── Subtitle below intro title ─────────────────────────────────────────── */
+.intro-card-subtitle {
+  margin-top: 14px;
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.5;
+}

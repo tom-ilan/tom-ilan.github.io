@@ -1,0 +1,37 @@
+/* ============================================================================
+   variables.css — Design Tokens & Theme
+   ============================================================================
+   Central source of truth for all design values.
+   Every colour, font, radius, and timing value used across the site
+   is defined here as a CSS custom property so changes propagate
+   everywhere automatically.
+   ============================================================================ */
+
+:root {
+  /* ── Backgrounds ───────────────────────────────────────────────────────── */
+  --bg-main:     #ffffff;   /* Page background */
+  --bg-card:     #ffffff;   /* Card / section fill */
+  --bg-viewport: #f1f5f9;   /* Three.js canvas backdrop (light cool-grey) */
+
+  /* ── Borders ────────────────────────────────────────────────────────────── */
+  --border-color: #cbd5e1;  /* Subtle dividers, input strokes */
+  --border-dark:  #0f172a;  /* High-contrast boxy borders (main design motif) */
+
+  /* ── Text ────────────────────────────────────────────────────────────────── */
+  --text-primary:   #0f172a;  /* Headings, body copy */
+  --text-secondary: #475569;  /* Supporting text, descriptions */
+  --text-muted:     #64748b;  /* Labels, metadata, captions */
+
+  /* ── Typography ──────────────────────────────────────────────────────────── */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:   'JetBrains Mono', monospace;  /* Labels, key badges, code */
+
+  /* ── Border Radius ───────────────────────────────────────────────────────── */
+  /* Kept intentionally small — the design language is boxy / industrial */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* ── Transitions ─────────────────────────────────────────────────────────── */
+  --transition-fast: 0.15s ease-in-out;  /* Hover states, micro-interactions */
+}

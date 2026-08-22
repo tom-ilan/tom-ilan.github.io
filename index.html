@@ -6,31 +6,57 @@
   <title>Tom Ilan - Portfolio</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-  <!-- Typography & Fonts -->
+  <!-- ── Google Fonts ──────────────────────────────────────────────────────
+       Plus Jakarta Sans  → body text, headings
+       JetBrains Mono     → labels, key badges, code blocks               -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <!-- ── Modular Stylesheets (load order matters for cascade) ─────────────
+       variables.css    → CSS custom properties (colours, fonts, radii)
+       base.css         → box-model reset, body, app wrapper
+       header.css       → sticky top navigation bar
+       intro.css        → intro/hero card + shared .section-label
+       project-card.css → project card layout, title, description, GitHub btn
+       viewer.css       → Three.js canvas panel and controls hint bar
+       responsive.css   → all @media breakpoint overrides                  -->
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/intro.css">
+  <link rel="stylesheet" href="styles/project-card.css">
+  <link rel="stylesheet" href="styles/viewer.css">
+  <link rel="stylesheet" href="styles/responsive.css">
 
-  <!-- External WebGL & CAD Libraries (Three.js, STLLoader, OrbitControls) -->
+  <!-- ── CDN Libraries (must load before our JS) ──────────────────────────
+       three.min.js     → Core Three.js WebGL engine
+       STLLoader.js     → Parses binary/ASCII .stl geometry
+       OrbitControls.js → Mouse/touch rotate, zoom, pan controls
+       marked.min.js    → Converts Markdown in descriptions to HTML        -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-  
-  <!-- Markdown Parser Library -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-  <!-- Modular Application Scripts -->
-  <script src="projects-data.js"></script>
-  <script src="stl-viewer.js"></script>
-  <script src="app.js"></script>
+  <!-- ── Application Scripts (load order is required) ─────────────────────
+       1. projects-data.js → defines PROJECTS_REGISTRY (data layer)
+       2. stl-viewer.js    → defines STLViewer class   (3D engine wrapper)
+       3. renderer.js      → defines renderProjectCard  (DOM builder)
+       4. app.js           → entrypoint, wires everything together          -->
+  <script src="js/projects-data.js"></script>
+  <script src="js/stl-viewer.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/app.js"></script>
 </head>
 <body>
 
   <div class="app-wrapper">
-    <!-- Top Bar Navigation Header -->
+
+    <!-- ── Site Header ─────────────────────────────────────────────────────
+         Sticky navigation bar. Defined in styles/header.css.
+         Left: brand name + role badge.
+         Right: icon links to GitHub, OpenPowerlifting, Hacker News.        -->
     <header class="site-header">
       <div class="header-brand">
         <h1>Tom Ilan</h1>
@@ -51,9 +77,27 @@
       </div>
     </header>
 
-    <!-- Main Fullpage Project Container -->
+    <!-- ── Main Content ─────────────────────────────────────────────────────
+         Intro card takes the first viewport, then each project card follows.
+         Project cards are injected dynamically by js/app.js.               -->
     <main class="main-container">
+
+      <!-- Full-viewport intro / hero section -->
+      <section class="intro-card" aria-labelledby="intro-card-title">
+        <div class="intro-card-content">
+          <h2 id="intro-card-title" class="intro-card-title">Tom Ilan</h2>
+          <p class="intro-card-subtitle">Aspiring Engineer and Powerlifter from 🇨🇦</p>
+        </div>
+      </section>
+
+      <!-- ── Featured Projects Header Banner ─────────────────────────────── -->
+      <div class="projects-header-banner">
+        <h2 class="projects-header-title">Featured Projects</h2>
+      </div>
+
+      <!-- Project cards are appended here by js/app.js at runtime -->
       <div id="projects-container"></div>
+
     </main>
   </div>
 

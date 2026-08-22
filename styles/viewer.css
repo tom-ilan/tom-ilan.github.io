@@ -1,0 +1,74 @@
+/* ============================================================================
+   viewer.css — 3D STL Viewer Panel
+   ============================================================================
+   Styles the right-hand column of each project card that contains the
+   interactive Three.js WebGL canvas and the keyboard-hint bar beneath it.
+   ============================================================================ */
+
+/* ── Viewer Wrapper ──────────────────────────────────────────────────────────
+   Square (1:1 aspect ratio) container that holds the canvas + controls hint.
+   Uses min() to cap at 65% of the viewport height or 100% of parent width,
+   whichever is smaller — so it never overflows on short/narrow screens.
+   flex-direction column lets the hint bar sit flush below the canvas. */
+.viewer-wrapper {
+  aspect-ratio: 1 / 1;
+  width: min(65vh, 100%);
+  max-width: 600px;
+  margin: auto;
+  flex-shrink: 0;
+  background-color: var(--bg-viewport);
+  border: 2px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;  /* Clip canvas edges to the border-radius */
+}
+
+/* ── WebGL Canvas ────────────────────────────────────────────────────────────
+   Fills all remaining vertical space not taken by the controls hint bar.
+   Three.js sizes it in pixels via JS, but CSS still controls its layout slot. */
+.viewport-canvas {
+  width: 100%;
+  flex: 1;       /* Stretch to fill available space above hint bar */
+  min-height: 0; /* Allow flex shrink below intrinsic size */
+  display: block;
+}
+
+/* ── Controls Hint Bar ────────────────────────────────────────────────────────
+   A compact 3-column row at the bottom of the viewer listing mouse/trackpad
+   shortcuts (Rotate / Zoom / Pan). Font size uses clamp() to stay legible
+   on any screen width without wrapping to three lines. */
+.viewer-controls-hint {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  padding: 6px 12px;
+  background-color: #ffffff;
+  border-top: 2px solid var(--border-dark);
+  font-size: clamp(0.56rem, 1.1vw, 0.62rem);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  gap: 6px;
+  flex: 0 0 auto;  /* Fixed height — never stretches */
+}
+
+/* ── Single Hint Item (icon badge + label) ───────────────────────────────── */
+.control-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;  /* Allow text to truncate inside grid cell if needed */
+}
+
+/* ── Keyboard / Mouse Badge ──────────────────────────────────────────────────
+   Resembles a physical keycap for the hint label (e.g. "Left Click + Drag"). */
+.key-badge {
+  background-color: #e2e8f0;
+  border: 1px solid var(--border-dark);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-weight: 700;
+}

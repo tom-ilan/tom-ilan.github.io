@@ -1,0 +1,32 @@
+/* ============================================================================
+   base.css — Reset & Base Styles
+   ============================================================================
+   Minimal reset followed by global body and layout wrapper styles.
+   Keeps browser inconsistencies from leaking into the design.
+   ============================================================================ */
+
+/* ── Universal Box Model Reset ──────────────────────────────────────────────
+   Setting box-sizing to border-box means padding and border are included
+   in an element's declared width/height, preventing overflow surprises. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Body ────────────────────────────────────────────────────────────────────
+   Apply global font, background, and text colour from design tokens. */
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;  /* Sharper text on macOS / retina */
+}
+
+/* ── App Wrapper ─────────────────────────────────────────────────────────────
+   Full-width container that holds the header and main scroll content. */
+.app-wrapper {
+  width: 100%;
+  min-height: 100vh;
+}

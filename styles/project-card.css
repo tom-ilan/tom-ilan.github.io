@@ -1,0 +1,175 @@
+/* ============================================================================
+   project-card.css — Project Cards & Metadata
+   ============================================================================
+   Styles each project entry: a full-height row split into a left text
+   column (title, description, GitHub link) and a right viewer column
+   (handled separately in viewer.css).
+   ============================================================================ */
+
+/* ── Scrollable Projects Wrapper ─────────────────────────────────────────── */
+.main-container {
+  width: 100%;
+}
+
+#projects-container {
+  width: 100%;
+}
+
+/* ── Section Header Banner (Featured Projects) ────────────────────────────── */
+.projects-header-banner {
+  width: 100%;
+  padding: 48px 32px 16px 32px;
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-header-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* ── Project Card — Outer Article ────────────────────────────────────────────
+   Each project occupies at least a full viewport height (minus header).
+   Side-by-side flex layout: text on the left, 3D viewer on the right.
+   At narrow widths this collapses to a vertical column (see responsive.css). */
+.project-card {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  background-color: var(--bg-card);
+  border-bottom: 2px solid var(--border-dark);
+}
+
+/* ── Left Column — Text Content ──────────────────────────────────────────────
+   Flex-grows to fill available space beside the fixed-width viewer.
+   max-width caps it so the description doesn't stretch awkwardly on wide screens. */
+.project-header-section {
+  flex: 1;
+  min-width: 280px;
+  max-width: 500px;
+}
+
+/* ── Project Title ───────────────────────────────────────────────────────── */
+.project-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+/* ── Project Year ────────────────────────────────────────────────────────────
+   Displayed in monospace just beneath the title as a subtle timestamp. */
+.project-year {
+  display: block;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: -6px;
+  margin-bottom: 14px;
+}
+
+/* ── Project Description ─────────────────────────────────────────────────────
+   Renders parsed Markdown output (via marked.js). Child selectors below
+   normalise headings, lists, code, and links inside the markdown block. */
+.project-description {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 900px;
+  margin-bottom: 20px;
+}
+
+/* Paragraph spacing within markdown output */
+.project-description p {
+  margin-bottom: 12px;
+}
+
+/* Headings inside markdown (H1/H2/H3) */
+.project-description h1,
+.project-description h2,
+.project-description h3 {
+  color: var(--text-primary);
+  margin-top: 16px;
+  margin-bottom: 8px;
+  text-transform: none;
+}
+
+/* Ordered and unordered lists */
+.project-description ul,
+.project-description ol {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.project-description li {
+  margin-bottom: 4px;
+}
+
+/* Inline code within markdown */
+.project-description code {
+  font-family: var(--font-mono);
+  background-color: #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-primary);
+}
+
+/* Links within markdown */
+.project-description a {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ── Project Meta Row (GitHub link, future tags, etc.) ───────────────────── */
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ── GitHub Source Button ────────────────────────────────────────────────────
+   Boxy bordered button that links to the project's GitHub repository. */
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 2px solid var(--border-dark);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+/* Invert on hover — matches the header link button pattern */
+.github-btn:hover {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+/* SVG icon inside the GitHub button inherits button text colour */
+.github-btn svg {
+  fill: currentColor;
+  width: 16px;
+  height: 16px;
+}

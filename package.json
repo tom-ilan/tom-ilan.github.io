@@ -1,0 +1,9 @@
+{
+  "name": "tom-ilan-portfolio",
+  "version": "1.0.0",
+  "description": "Tom Ilan engineering portfolio — static site with Three.js STL viewers",
+  "scripts": {
+    "start": "python3 -m http.server 3000 --directory .",
+    "dev": "python3 -m http.server 3000 --directory ."
+  }
+}

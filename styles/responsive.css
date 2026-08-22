@@ -1,0 +1,112 @@
+/* ============================================================================
+   responsive.css — Media Queries / Responsive Breakpoints
+   ============================================================================
+   All breakpoint overrides in one place so layout changes are easy to find.
+
+   Breakpoints:
+     ≤ 900px  — Tablet / narrow desktop: stack card columns vertically
+     ≤ 480px  — Mobile: tighter padding, smaller fonts, 2-col hint grid
+   ============================================================================ */
+
+/* ── Tablet / Narrow Desktop (≤ 900px) ──────────────────────────────────────
+   Switch from side-by-side to top-to-bottom layout inside each project card.
+   The 3D viewer becomes a fixed 50vh block below the text column. */
+@media (max-width: 900px) {
+
+  /* Reduce intro card padding */
+  .intro-card {
+    padding: 28px 20px;
+  }
+
+  /* Section banner padding */
+  .projects-header-banner {
+    padding: 32px 20px 8px 20px;
+  }
+
+  /* Stack text column and viewer vertically */
+  .project-card {
+    flex-direction: column;
+    padding: 28px 20px;
+    gap: 24px;
+    min-height: auto;  /* Cards can be shorter than the viewport on mobile */
+  }
+
+  /* Allow the text column to span full width when stacked */
+  .project-header-section {
+    max-width: 100%;
+  }
+
+  /* Viewer takes full width and a fixed 50vh height */
+  .viewer-wrapper {
+    flex: none;
+    width: 100%;
+    height: 50vh;
+    min-height: 300px;
+    align-self: auto;
+  }
+}
+
+/* ── Mobile (≤ 480px) ────────────────────────────────────────────────────────
+   Further tighten spacing and scale down typography for small screens. */
+@media (max-width: 480px) {
+
+  /* Wrap the header row on very small screens so links don't overflow */
+  .site-header {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Tighter horizontal padding on small cards */
+  .project-card {
+    padding: 20px 16px;
+  }
+
+  .projects-header-banner {
+    padding: 24px 16px 8px 16px;
+  }
+
+  .projects-header-title {
+    font-size: 1.4rem;
+  }
+
+  /* Adjust intro card height accounting for a potentially taller header */
+  .intro-card {
+    min-height: calc(100vh - 67px);
+    padding: 20px 16px;
+  }
+
+  /* Scale down project title so it doesn't overflow */
+  .project-title {
+    font-size: 1.5rem;
+  }
+
+  /* Remove the square aspect ratio — let the canvas control height */
+  .viewer-wrapper {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
+  /* Canvas gets an explicit pixel-based height on mobile */
+  .viewport-canvas {
+    flex: none;
+    height: calc(40vh - 42px);  /* 40vh minus the hint-bar height */
+  }
+
+  /* Controls hint switches to 2 columns so hints don't get too narrow */
+  .viewer-controls-hint {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 6px 8px;
+    gap: 5px;
+    font-size: 0.56rem;
+  }
+
+  .control-item {
+    gap: 4px;
+  }
+
+  .key-badge {
+    padding: 2px 4px;
+  }
+}

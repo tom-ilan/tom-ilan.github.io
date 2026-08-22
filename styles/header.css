@@ -1,0 +1,105 @@
+/* ============================================================================
+   header.css — Sticky Top Navigation Bar
+   ============================================================================
+   Styles the fixed header that shows the site brand on the left and
+   external link buttons (GitHub, OpenPowerlifting, HN) on the right.
+   The header stays at the top of the viewport while the user scrolls.
+   ============================================================================ */
+
+/* ── Header Container ────────────────────────────────────────────────────────
+   Sticky positioning keeps it pinned while the user scrolls the page. */
+.site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 16px 32px;
+  background-color: #ffffff;
+  border-bottom: 2px solid var(--border-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;  /* Above all page content */
+}
+
+/* ── Brand Block (left side) ─────────────────────────────────────────────────
+   Contains the site name and the "aspiring engineer" badge. */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── Site Name ───────────────────────────────────────────────────────────────
+   Uppercase + tight tracking = technical / industrial feel. */
+h1 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* ── Role Badge ──────────────────────────────────────────────────────────────
+   Small pill-like label beside the site name. */
+.header-badge {
+  display: inline-block;
+  background-color: #e2e8f0;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-dark);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Secondary Header Text (optional, currently unused) ─────────────────── */
+.header-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ── Right-side Icon Links ───────────────────────────────────────────────── */
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Individual Link Button ──────────────────────────────────────────────────
+   Square-ish bordered buttons housing icons or short text. */
+.header-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-dark);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+/* Invert colours on hover — dark background, white text */
+.header-link-btn:hover {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+/* Slight rounding on favicon images inside link buttons */
+.header-link-btn img {
+  border-radius: 3px;
+}
+
+/* ── Hacker News "Y" Button ──────────────────────────────────────────────────
+   Uses the monospace font so the "Y" glyph aligns proportionally. */
+.hacker-news-link {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  line-height: 1;
+}
